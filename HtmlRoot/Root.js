@@ -1,13 +1,72 @@
-import { DragRound } from "./js/DragRound.js";
+import {
+    _MouseMove, _Blur, _MouseUp, _MouseDown, _Resize, _Scroll,
+    DragRound
+} from "./js/DragRound.js";
 
 
-const m_dr = new DragRound('dgrid');
 
-// setTimeout(() => {
-//     m_dr.Dispose();
-// }, 3000);
+
+const m_dgrid = document.getElementById('dgrid');
+const m_dgbg = document.getElementById('dgbg');
+const m_dgitc = document.getElementById('dgitc');
+
+
+
+// const m_itemArr = [];
+
+const m_dr = new DragRound(m_dgrid, (e) => {
+    // m_dround.insertAdjacentHTML('afterbegin', '<button type="button">Click Me!</button>');
+    // console.log(m_dround.children.length);
+    // for (const he of m_dround.children) {
+    //     console.log(he);
+    //     // he.remove();
+    // }
+
+    // m_dround.innerHTML = `
+
+    // `.trim();
+
+    // m_itemArr.length = 0;
+    // m_itemArr.push();
+
+    // m_dicont.insertAdjacentHTML('afterbegin', '<button type="button">Click Me!</button><br/>');
+    // console.log(type);
+    // if (e.type === _Resize) {
+    //     const stl = m_dicont.style;
+    //     stl.width = '999px';
+    // }
+    // if ((e.type === _MouseMove) ||
+    //     (e.type === _Resize) ||
+    //     (e.type === _Scroll)) {
+    //     // const stl = getComputedStyle(m_dicont);
+    //     // console.log(JSON.stringify(stl, null, 2));
+
+    //     const sl = m_dgrid.scrollLeft;
+    //     const st = m_dgrid.scrollTop;
+    //     // console.log(sl, st);
+    //     const st1 = m_dicont.style;
+    //     st1.setProperty('left', `${sl + 10}px`);
+    //     st1.setProperty('top', `${st + 10}px`);
+    //     st1.setProperty('right', `${10}px`);
+    //     st1.setProperty('bottom', `${10}px`);
+    //     // st1.setProperty('width', `calc(100% - ${st}px)`);
+    //     // width: calc(100% - 20px); height: calc(100% - 20px);
+
+    //     // const st2 = getComputedStyle(m_dicont);
+    //     // const tw = st2.getPropertyValue('width');
+    //     // const th = st2.getPropertyValue('height');
+    //     // console.log(tw);
+    // }
+});
 
 window.m_dr = m_dr;
+
+
+
+
+
+
+
 
 
 // const fn_MouseMove = (e) => {
