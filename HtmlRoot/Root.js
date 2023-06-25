@@ -12,7 +12,51 @@ const m_dgitc = document.getElementById('dgitc');
 
 
 
+
+
+
+const fn_updateRender = () => {
+    m_dgitc.innerHTML = '';
+
+
+    let hea = [];
+    const tca = ['red', 'green', 'blue'];
+
+    const st1 = getComputedStyle(m_dgitc);
+    let gw = parseInt(st1.width) + 300;
+    let gh = parseInt(st1.height) + 300;
+    let iw = 100;
+    let ih = 30;
+
+    let j = Math.floor(gw / iw);
+
+    for (let i = 0; i < 101; ++i) {
+
+        let q = i % j;
+        let r = Math.floor(i / j);
+        let x = iw * q;
+        let y = ih * r;
+
+        x = x - 100;
+
+        hea.push(`
+        <div style="background-color: ${tca[i % 3]}; width: 100px; height: 30px;
+            position: absolute; left: ${x}px; top: ${y}px;">${i}</div>
+            `.trim());
+    }
+    let aht = hea.join('');
+
+    m_dgitc.insertAdjacentHTML('afterbegin', aht);
+
+    // const tst1 = getComputedStyle(m_dgitc);
+    // console.log(tst1);
+};
+
+
+
 // const m_itemArr = [];
+
+
 
 const m_dr = new DragRound(m_dgrid, (e) => {
     // m_dround.insertAdjacentHTML('afterbegin', '<button type="button">Click Me!</button>');
@@ -57,9 +101,16 @@ const m_dr = new DragRound(m_dgrid, (e) => {
     //     // const th = st2.getPropertyValue('height');
     //     // console.log(tw);
     // }
+
+    // console.log('>>> ' + e.type);
+
+    // m_dgbg.innerHTML = '';
+    // m_dgbg.insertAdjacentHTML('afterbegin', '<button type="button">Click Me!</button><br/>');
+
+    // fn_updateRender();
 });
 
-window.m_dr = m_dr;
+// window.m_dr = m_dr;
 
 
 

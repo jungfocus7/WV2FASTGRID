@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RootPage</title>
+    <!-- <link href="./reset.css" rel="stylesheet"> -->
+    <style>
+        html, body {
+            margin: 0px; padding: 0px;
+            width: 100%; height: 100%;
+            font-family: 'Malgun Gothic', 'Consolas', 'monaco', 'monospace';
+            font-size: 0px;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="m_droot" style="background-color: red; position: absolute;
+        width: 100px; height: 100px; left: 10px; top: 10px;
+        box-sizing: border-box; border: 4px solid green"></div>
+
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+
+    <script>
+        const myCanvas = document.getElementById("myCanvas");
+        const ctx = myCanvas.getContext("2d");
+        ctx.fillRect(0, 0, 400, 400);
+
+        // const drt = document.getElementById('m_droot');
+        // window.m_drt = drt;
+        // const tagStr = drt.outerHTML;
+        // console.log(tagStr);
+
+//         const tagStr = `
+// <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+//     <foreignObject width="100%" height="100%">
+//         <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:40px">
+//             <em>I</em> like
+//             <span style="color:white; text-shadow:0 0 2px blue;">
+//                 cheese 한글 ㅋㅋㅋㅋ
+//             </span>
+//         </div>
+//     </foreignObject>
+// </svg>
+//         `.trim();
+
+//         const elImg = new Image();
+//         // console.log(elImg);
+//         const elSvg = new Blob([tagStr], {type: 'image/svg+xml;charset=utf-8'});
+//         // console.log(elSvg);
+//         const elUrl = window.URL.createObjectURL(elSvg);
+//         // console.log(elUrl);
+
+//         elImg.addEventListener('load', (e) => {
+//             ctx.drawImage(elImg, 0, 0);
+//             window.URL.revokeObjectURL(elUrl);
+//         });
+//         elImg.src = elUrl;
+
+
+
+
+
+
+        const drt = document.getElementById('m_droot');
+        window.m_drt = drt;
+        const tagStr = drt.outerHTML;
+        console.log(tagStr);
+
+        const elImg = new Image();
+        // console.log(elImg);
+        const elSvg = new Blob([tagStr], {type: 'text/plain'});
+        // console.log(elSvg);
+        const elUrl = window.URL.createObjectURL(elSvg);
+        // console.log(elUrl);
+
+        elImg.addEventListener('load', (e) => {
+            console.log('~~~~~~~~');
+            ctx.drawImage(elImg, 0, 0);
+            window.URL.revokeObjectURL(elUrl);
+        });
+        elImg.src = elUrl;
+
+
+
+
+
+
+
+
+
+//         const data = `
+// <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+//     <foreignObject width="100%" height="100%">
+//         <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:40px">
+//             <em>I</em> like ' +
+//              '<span style="color:white; text-shadow:0 0 2px blue;">' +
+//              'cheese 한글 ㅋㅋㅋㅋ</span>' +
+//            '</div>' +
+//            '</foreignObject>' +
+//            '</svg>'`;
+        // var DOMURL = window.URL || window.webkitURL || window;
+
+        // var img = new Image();
+        // var svg = new Blob([data], {type: 'image/svg+xml;charset=utf-8'});
+        // var url = DOMURL.createObjectURL(svg);
+
+        // img.onload = () => {
+        //     ctx.drawImage(img, 0, 0);
+        //     DOMURL.revokeObjectURL(url);
+        // };
+
+        // img.src = url;
+
+    </script>
+</body>
+</html>
