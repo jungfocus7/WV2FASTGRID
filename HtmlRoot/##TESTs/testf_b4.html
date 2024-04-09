@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RootPage</title>
+<style>
+html, body
+{
+    width: 100%; height: 100%;
+    margin: 0px; padding: 0px;
+    background-color: black; color: white;
+    font-family: 'Malgun Gothic', 'Consolas', 'monaco', 'monospace';
+    font-size: 0px; overflow-x: hidden; overflow-y: hidden;
+}
+
+div.c_drt
+{
+    display: inline-block;
+    position: relative;
+    width: 100%; height: 100%;
+    margin: 0px; padding: 0px;
+    left: 0px; top: 0px;
+    background-color: darkslateblue;
+    box-sizing: border-box;
+    border: 10px solid black;
+    border-radius: 0px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    font-size: 0px;
+}
+
+div.c_dc
+{
+    position: absolute;
+    width: 0px; height: 0px;
+    margin: 0px; padding: 0px;
+    left: 0px; top: 0px;
+    background-color: rgba(255, 0, 0, 0.144);
+    box-sizing: border-box;
+    border: 0px dotted darkgrey;
+}
+
+div.c_bc
+{
+    position: absolute;
+    width: 40px; height: 40px;
+    margin: 0px; padding: 0px;
+    left: 0px; top: 0px;
+    background-color: red;
+    box-sizing: border-box;
+    border: 2px solid darkgrey;
+}
+
+div.c_br
+{
+    position: absolute;
+    width: 40px; height: 40px;
+    margin: 0px; padding: 0px;
+    left: 0px; top: 0px;
+    background-color: green;
+    box-sizing: border-box;
+    border: 2px solid darkgrey;
+}
+</style>
+</head>
+
+<body>
+<div class="c_drt" id="d_drt">
+    <div class="c_dc" id="d_dc">
+    </div>
+</div>
+    <!-- <div id="m_droot" style="background-color: red; position: absolute;
+        width: 100px; height: 100px; left: 10px; top: 10px;
+        box-sizing: border-box; border: 4px solid green"></div> -->
+
+<script>
+    const m_drt = document.getElementById('d_drt');
+    const m_dc = document.getElementById('d_dc');
+
+    const m_dgio = Object.seal({
+        name: 'TEST',
+        ch: 30,
+        columns: [
+            { cnm: 'CN01', fnm: 'FN01', cw: 100 },
+            { cnm: 'CN02', fnm: 'FN02', cw: 100 },
+            { cnm: 'CN03', fnm: 'FN03', cw: 100 }
+        ],
+        rows: [
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            },
+            {
+                rh: 30,
+                arr: [
+                    { fnm: 'FN01', val: 'TEST' },
+                    { fnm: 'FN02', val: 'TEST' },
+                    { fnm: 'FN03', val: 'TEST' }
+                ]
+            }
+        ]
+    });
+
+
+
+    const fn_CheckRender = (ts, tw, th, qx, qy) => {
+        m_dc.insertAdjacentHTML('beforeend', `
+<div class="${ts}" style="
+    width: ${tw}px; height: ${th}px;
+    left: ${qx}px; top: ${qy}px;"></div>
+        `.trim());
+    };
+
+
+    const fn_DataRender = (e) => {
+        let i = 0;
+        for (const co of m_dgio.columns) {
+            let tw = co.cw;
+            let th = m_dgio.ch;
+            let qx = tw * i;
+            let qy = 0;
+            ++i;
+
+            m_dc.insertAdjacentHTML('beforeend', `
+<div class="c_bc" style="
+    width: ${tw}px; height: ${th}px;
+    left: ${qx}px; top: ${qy}px;"></div>
+            `.trim());
+            // fn_CheckRender('c_bc', tw, th, qx, qy);
+        }
+
+        let ch = m_dgio.ch;
+        let xc = m_dgio.columns.length;
+        i = 0;
+        for (const ro of m_dgio.rows) {
+            let j = 0;
+            for (const ri of ro.arr) {
+                let tw = m_dgio.columns[j].cw;
+                let th = ro.rh;
+                let qx = tw * j;
+                let qy = ch + (th * i);
+                ++j;
+
+                // console.log(qx, qy);
+
+            m_dc.insertAdjacentHTML('beforeend', `
+<div class="c_br" style="
+    width: ${tw}px; height: ${th}px;
+    left: ${qx}px; top: ${qy}px;"></div>
+            `.trim());
+            }
+
+
+            // let tq = i % xc;
+            // let te = Math.floor(i / xc);
+            // let qx = tw * tq;
+            // let qy = ch + (th * te);
+            ++i;
+
+
+
+//             m_dc.insertAdjacentHTML('beforeend', `
+// <div class="c_br" style="
+//     width: ${tw}px; height: ${th}px;
+//     left: ${qx}px; top: ${qy}px;"></div>
+//             `.trim());
+        }
+    };
+    // m_drt.addEventListener('scroll', fn_ScrollHandler);
+
+
+    const fn_ContainerUpdate = () => {
+        m_dc.innerHTML = null;
+
+        let rw = 0;
+        let rh = m_dgio.ch;
+
+        for (const co of m_dgio.columns) {
+            rw += co.cw;
+        }
+
+        for (const ro of m_dgio.rows) {
+            rh += ro.rh;
+        }
+
+        m_dc.setAttribute('style', `width: ${rw}px; height: ${rh}px;`);
+
+        fn_DataRender(null);
+
+
+        // m_dc.style.width = '1000px';
+        // m_dc.style.height = '1000px';
+        // m_dc.setAttribute('style', 'width: 100px; height: 100px;');
+        // console.log(m_dc.style.getPropertyValue('width'));
+/*
+        let rw = m_drt.clientWidth;
+        let rh = m_drt.clientHeight;
+        let rl = m_drt.clientLeft;
+        let rt = m_drt.clientTop;
+        // console.log(rw, rh, rl, rt);
+
+
+
+        let tw = 100, th = 30;
+        let xc = 7;
+        let yc = 7;
+        let l = xc * yc;
+        for (let i = 0; i < l; ++i)
+        {
+            let q = i % xc;
+            let r = Math.floor(i / xc);
+            //  console.log(q, r);
+
+            let qx = tw * q;
+            let qy = th * r;
+            // console.log(qx, qy);
+            // if (qy > 400) continue;
+
+            m_dc.insertAdjacentHTML('beforeend', `
+<div class="c_bc" style="
+    width: ${tw}px; height: ${th}px;
+    left: ${qx}px; top: ${qy}px;"></div>
+            `.trim());
+            // fn_SVG_AppendRect(w, h, x, y);
+        }*/
+    };
+
+    fn_ContainerUpdate();
+
+</script>
+</body>
+</html>

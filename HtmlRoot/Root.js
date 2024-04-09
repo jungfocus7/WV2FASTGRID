@@ -1,116 +1,18 @@
-import {
-    _MouseMove, _Blur, _MouseUp, _MouseDown, _Resize, _Scroll,
-    DragRound
-} from "./js/DragRound.js";
+import { hfDataGrid } from "./js/__hfDataGridAll__.js";
 
 
 
 
-const m_dgrid = document.getElementById('dgrid');
-const m_dgbg = document.getElementById('dgbg');
-const m_dgitc = document.getElementById('dgitc');
-
-
-
-
-
-
-const fn_updateRender = () => {
-    m_dgitc.innerHTML = '';
-
-
-    let hea = [];
-    const tca = ['red', 'green', 'blue'];
-
-    const st1 = getComputedStyle(m_dgitc);
-    let gw = parseInt(st1.width) + 300;
-    let gh = parseInt(st1.height) + 300;
-    let iw = 100;
-    let ih = 30;
-
-    let j = Math.floor(gw / iw);
-
-    for (let i = 0; i < 101; ++i) {
-
-        let q = i % j;
-        let r = Math.floor(i / j);
-        let x = iw * q;
-        let y = ih * r;
-
-        x = x - 100;
-
-        hea.push(`
-        <div style="background-color: ${tca[i % 3]}; width: 100px; height: 30px;
-            position: absolute; left: ${x}px; top: ${y}px;">${i}</div>
-            `.trim());
-    }
-    let aht = hea.join('');
-
-    m_dgitc.insertAdjacentHTML('afterbegin', aht);
-
-    // const tst1 = getComputedStyle(m_dgitc);
-    // console.log(tst1);
-};
-
-
-
-// const m_itemArr = [];
-
-
-
-const m_dr = new DragRound(m_dgrid, (e) => {
-    // m_dround.insertAdjacentHTML('afterbegin', '<button type="button">Click Me!</button>');
-    // console.log(m_dround.children.length);
-    // for (const he of m_dround.children) {
-    //     console.log(he);
-    //     // he.remove();
-    // }
-
-    // m_dround.innerHTML = `
-
-    // `.trim();
-
-    // m_itemArr.length = 0;
-    // m_itemArr.push();
-
-    // m_dicont.insertAdjacentHTML('afterbegin', '<button type="button">Click Me!</button><br/>');
-    // console.log(type);
-    // if (e.type === _Resize) {
-    //     const stl = m_dicont.style;
-    //     stl.width = '999px';
-    // }
-    // if ((e.type === _MouseMove) ||
-    //     (e.type === _Resize) ||
-    //     (e.type === _Scroll)) {
-    //     // const stl = getComputedStyle(m_dicont);
-    //     // console.log(JSON.stringify(stl, null, 2));
-
-    //     const sl = m_dgrid.scrollLeft;
-    //     const st = m_dgrid.scrollTop;
-    //     // console.log(sl, st);
-    //     const st1 = m_dicont.style;
-    //     st1.setProperty('left', `${sl + 10}px`);
-    //     st1.setProperty('top', `${st + 10}px`);
-    //     st1.setProperty('right', `${10}px`);
-    //     st1.setProperty('bottom', `${10}px`);
-    //     // st1.setProperty('width', `calc(100% - ${st}px)`);
-    //     // width: calc(100% - 20px); height: calc(100% - 20px);
-
-    //     // const st2 = getComputedStyle(m_dicont);
-    //     // const tw = st2.getPropertyValue('width');
-    //     // const th = st2.getPropertyValue('height');
-    //     // console.log(tw);
-    // }
-
-    // console.log('>>> ' + e.type);
-
-    // m_dgbg.innerHTML = '';
-    // m_dgbg.insertAdjacentHTML('afterbegin', '<button type="button">Click Me!</button><br/>');
-
-    // fn_updateRender();
-});
-
-// window.m_dr = m_dr;
+const m_dataGrid = new hfDataGrid(document.getElementById('d_grid'));
+for (let ic = 0; ic < 10; ++ic) {
+    let tn = (ic + 1).toString().padStart(3, '0');
+    m_dataGrid.AddColumn(`CN${tn}`, '', 100, 30);
+}
+for (let ir = 0; ir < 99; ++ir) {
+    const ri = m_dataGrid.AddRow();
+    // console.log(ri);
+}
+m_dataGrid.Render();
 
 
 
@@ -120,70 +22,38 @@ const m_dr = new DragRound(m_dgrid, (e) => {
 
 
 
-// const fn_MouseMove = (e) => {
-//     // console.log(e);
 
-//     const lx = m_dx - e.x;
-//     const ly = m_dy - e.y;
-//     console.log(lx, ly);
 
-//     const sl = m_sl + lx;
-//     const st = m_st + ly;
-//     // console.log(sl, st);
 
-//     // // m_dgrid.scrollLeft = lx;
-//     m_dgrid.scroll(sl, st);
-// };
-
-// const fn_MouseUp = (e) => {
-//     window.removeEventListener(_MouseMove, fn_MouseMove);
-//     window.removeEventListener(_MouseUp, fn_MouseUp);
-//     window.removeEventListener(_Blur, fn_MouseUp);
-//     console.log('MouseUp');
-
-//     const sl = m_dgrid.scrollLeft;
-//     const st = m_dgrid.scrollTop;
-//     console.log(sl, st);
-// };
-
-// const fn_MouseDown = (e) => {
-//     if (e.button === 0) {
-//         window.addEventListener(_MouseMove, fn_MouseMove);
-//         window.addEventListener(_MouseUp, fn_MouseUp);
-//         window.addEventListener(_Blur, fn_MouseUp);
-//         m_dx = e.x;
-//         m_dy = e.y;
-//         m_sl = m_dgrid.scrollLeft;
-//         m_st = m_dgrid.scrollTop;
-//         fn_MouseMove(e);
+// class GridColumn {
+//     constructor(colName, propName, width, height) {
+//         this.#colName = colName;
+//         this.#propName = propName;
+//         this.#width = width;
+//         this.#height = height;
 //     }
-// };
+
+//     #colName = '';
+//     #propName = '';
+//     #width = 70;
+//     #height = 30;
+// }
+
+// const m_dataGridInfo = Object.seal({
+//     columns: []
+// });
+
+// m_dataGridInfo.columns.push('xxxx');
+// m_dataGridInfo.columns = null;
+
+// console.log(m_dataGridInfo);
 
 
-// const fn_InitOnce = () => {
-//     window.x1 = m_dround.style;
-
-//     window.addEventListener(_MouseDown, fn_MouseDown);
-// };
 
 
 
-// const _MouseMove = 'mousemove';
-// const _Blur = 'blur';
-// const _MouseUp = 'mouseup';
-// const _MouseDown = 'mousedown';
 
+// const m_dr = new hfDragRound(m_dgrid, (e) => {
 
-// const m_droot = document.getElementById('droot');
-// const m_dgrid = document.getElementById('dgrid');
-// const m_dround = document.getElementById('dround');
+// });
 
-
-// let m_dx = 0;
-// let m_dy = 0;
-
-// let m_sl = 0;
-// let m_st = 0;
-
-
-// fn_InitOnce();
